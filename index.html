@@ -213,6 +213,9 @@
   .show-info .city{
     font-size:0.88rem; color:var(--champagne-dim);
   }
+  .show-info .note{
+    font-size:0.85rem; color:var(--gold-bright);
+  }
   .show-time{
     font-size:0.9rem; color:var(--gold-bright);
     white-space:nowrap;
@@ -351,6 +354,7 @@
    One line per show below. Keep date as "YYYY-MM-DD" — the
    day-of-week and the "Sep 6" label are generated from it.
      time:    omit it entirely for a "Details TBA" show
+     note:    optional extra line under the city (e.g. cover charge)
      special: add  special:true  for a one-off (holiday, reunion)
    ============================================================ */
 const SHOWS = [
@@ -358,7 +362,7 @@ const SHOWS = [
   { date:"2026-09-10", venue:"American Legion", city:"Ocean City, MD", time:"3 – 7pm" },
   { date:"2026-09-11", venue:"Jolly Jellyfish Beach Club", city:"Ocean City, MD", time:"4 – 7pm" },
   { date:"2026-09-12", venue:"Coins Pub", city:"Ocean City, MD", time:"8 – 11:30pm" },
-  { date:"2026-10-16", venue:"Rockwell Brewery", city:"Frederick, MD", time:"7 – 11pm" },
+  { date:"2026-10-16", venue:"Rockwell Brewery", city:"Frederick, MD", time:"7 – 11pm", note:"$10 cover at the door" },
   { date:"2026-10-31", venue:"Halloween Bash at Frederick Elks", city:"Frederick, MD", special:true },
   { date:"2026-11-27", venue:"Cool Jerks Reunion — at Rockwell Brewery", city:"Frederick, MD", special:true },
   { date:"2026-12-21", venue:"Private Party", city:"" },
@@ -388,7 +392,8 @@ const SHOWS = [
       + '<div class="show-date"><span class="dow">' + DOW[dt.getDay()] + '</span>'
       + '<span class="num">' + MON[m-1] + " " + d + '</span></div>'
       + '<div class="show-info"><div class="venue">' + esc(s.venue) + '</div>'
-      + '<div class="city">' + esc(s.city) + '</div></div>'
+      + '<div class="city">' + esc(s.city) + '</div>'
+      + (s.note ? '<div class="note">' + esc(s.note) + '</div>' : '') + '</div>'
       + '<div class="show-time">' + (s.time ? esc(s.time) : "Details TBA") + '</div>'
       + '</div>';
   }
