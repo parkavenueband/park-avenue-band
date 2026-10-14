@@ -206,6 +206,7 @@
   }
   .show-date .dow{display:block; font-size:0.72rem; letter-spacing:0.08em; color:var(--brass);}
   .show-date .num{display:block; font-size:1.5rem; font-weight:600;}
+  .show-date .yr{display:block; font-size:0.72rem; letter-spacing:0.08em; color:var(--brass);}
   .show-info .venue{
     font-size:1.05rem; color:var(--champagne); font-weight:500;
     margin-bottom:3px;
@@ -465,7 +466,8 @@ const SHOWS = [
     const cls = ["show", s.special && "special", !s.time && "tba", past && "past"].filter(Boolean).join(" ");
     return '<div class="' + cls + '">'
       + '<div class="show-date"><span class="dow">' + DOW[dt.getDay()] + '</span>'
-      + '<span class="num">' + MON[m-1] + " " + d + '</span></div>'
+      + '<span class="num">' + MON[m-1] + " " + d + '</span>'
+      + '<span class="yr">' + y + '</span></div>'
       + '<div class="show-info"><div class="venue">' + esc(s.venue) + '</div>'
       + '<div class="city">' + esc(s.city) + '</div>'
       + (s.note ? '<div class="note">' + esc(s.note) + '</div>' : '') + '</div>'
