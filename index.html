@@ -216,12 +216,11 @@
   .show-info .note{
     font-size:0.85rem; color:var(--gold-bright);
   }
-  .show-info .tickets{
-    font-size:0.85rem;
+  .show-time .tickets{
+    margin-top:8px;
   }
-  .show-info .tickets a{
+  .show-time .tickets a{
     display:inline-block;
-    margin-top:4px;
     padding:3px 14px;
     border:1px solid rgba(201,162,39,0.55);
     border-radius:999px;
@@ -233,7 +232,7 @@
     color:var(--gold-bright);
     transition:background .2s, border-color .2s;
   }
-  .show-info .tickets a:hover{
+  .show-time .tickets a:hover{
     background:rgba(201,162,39,0.12);
     border-color:var(--gold-bright);
   }
@@ -415,9 +414,9 @@ const SHOWS = [
       + '<span class="num">' + MON[m-1] + " " + d + '</span></div>'
       + '<div class="show-info"><div class="venue">' + esc(s.venue) + '</div>'
       + '<div class="city">' + esc(s.city) + '</div>'
-      + (s.note ? '<div class="note">' + esc(s.note) + '</div>' : '')
+      + (s.note ? '<div class="note">' + esc(s.note) + '</div>' : '') + '</div>'
+      + '<div class="show-time">' + (s.time ? esc(s.time) : "Details TBA")
       + (s.tickets ? '<div class="tickets"><a href="' + esc(s.tickets) + '" target="_blank" rel="noopener">Tickets →</a></div>' : '') + '</div>'
-      + '<div class="show-time">' + (s.time ? esc(s.time) : "Details TBA") + '</div>'
       + '</div>';
   }
 
